@@ -1,5 +1,3 @@
-package Tanmay;
-
 import java.util.Scanner;
 
 public class GymMembershipManager {

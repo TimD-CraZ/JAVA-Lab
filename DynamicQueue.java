@@ -1,5 +1,3 @@
-package Tanmay;
-
 public class DynamicQueue<T> {
     private T[] queue;
     private int size;

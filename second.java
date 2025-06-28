@@ -1,6 +1,3 @@
-package Tanmay;
-
-import java.lang.*;
 import java.util.Scanner;
 
 public class second {
@@ -15,6 +12,8 @@ public class second {
 
         System.out.print("Enter number 2: ");
         b = sc.nextInt();
+
+        sc.close();
     }
 
     public Integer boxSum(int a, int b) {

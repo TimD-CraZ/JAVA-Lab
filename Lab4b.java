@@ -1,5 +1,3 @@
-package Tanmay;
-
 import java.util.Scanner;
 
 class multipleinstance {
@@ -34,23 +32,28 @@ class multipleinstance {
     }
 
     public void display() {
+        int max = 0;
         System.out.println("Name: " + name);
         System.out.println("Roll Number: " + rollNumber);
         for (int i = 0; i < noOfSubjects; i++) {
             System.out.println("Marks in subject " + (i + 1) + ": " + marks[i]);
+            if(marks[i] > max) {
+                max = marks[i];
+            }
         }
         System.out.println("Total Marks: " + total);
         System.out.println("Average: " + avg);
+        System.out.println("max marks:" + max);
     }
 }
 
 public class Lab4b {
     public static void main(String[] args) {
         int noOfStudents;
-        Scanner sc = new Scanner(System.in);
+        Scanner s = new Scanner(System.in);
 
         System.out.print("Enter the number of students: ");
-        noOfStudents = sc.nextInt();
+        noOfStudents = s.nextInt();
 
         multipleinstance[] objs = new multipleinstance[noOfStudents];
 
@@ -62,5 +65,6 @@ public class Lab4b {
             objs[i].display();
             System.out.println();
         }
+        s.close();
     }
 }

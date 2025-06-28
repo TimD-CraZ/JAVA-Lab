@@ -1,5 +1,3 @@
-package Tanmay;
-
 public class chess {
     public static void main(String[] args) {
         int size = 8;

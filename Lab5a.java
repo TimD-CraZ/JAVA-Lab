@@ -1,5 +1,3 @@
-package Tanmay;
-
 import java.util.Vector;
 
 class Product {
@@ -62,3 +60,9 @@ public class Lab5a {
 //develope an online shopping platform to namage a dynamic list of products available for sale
 //i) implement a program called online shopping manager that ises a vector to store aproducts object. each product should have attributes for name procr and category
 //ii)design method in the on line shopping manager class to addd productas to the inventory, remove products and display all products in the inventory.
+
+// add()
+// size()
+// isEmpty()
+// get().name.equalsIgnoreCase(something)
+// for(variable_type variable : ittereate_over_vector)

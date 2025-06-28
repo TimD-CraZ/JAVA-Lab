@@ -1,5 +1,3 @@
-package Tanmay;
-
 public class Lab4a {
     public enum DayOfWeek{
         SUNDAY,

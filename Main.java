@@ -1,6 +1,3 @@
-package Tanmay;
-
-import java.lang.*;
 import java.util.Scanner;
 
 public class Main{
@@ -23,6 +20,8 @@ public class Main{
 
         System.out.print("Enter a character: ");
         charVal = sc.next().charAt(0);
+
+        sc.close();
     }
 
     public void convertDisplay() {

@@ -1,8 +1,6 @@
 //create a java program that simulates a simple traffic light controller using ennumeration
 //define an enum name traffic light with 3 constants(red, yellow, green)
 
-package Tanmay;
-
 import java.util.Scanner;
 
 public class Practice {

@@ -1,128 +1,61 @@
-// i. Interface for Stack Operations
 interface Stack {
-    void push(int element);
-
+    void push(int x);
     int pop();
-
     boolean isEmpty();
-
     int size();
 }
 
-// ii. Fixed-Length Stack Implementation
-class FixedLengthStack implements Stack {
-    private int[] stackArray;
-    private int top;
-    private int capacity;
-
-    public FixedLengthStack(int capacity) {
-        this.capacity = capacity;
-        this.stackArray = new int[capacity];
-        this.top = -1;
+class FixedStack implements Stack {
+    int[] a = new int[3]; int top = -1;
+    public void push(int x) {
+        if (top < a.length - 1) a[++top] = x;
     }
-
-    @Override
-    public void push(int element) {
-        if (top == capacity - 1) {
-            System.out.println("Stack Overflow: Cannot push element, stack is full.");
-            return;
-        }
-        stackArray[++top] = element;
-    }
-
-    @Override
     public int pop() {
-        if (isEmpty()) {
-            System.out.println("Stack Underflow: Cannot pop element, stack is empty.");
-            return -1;
-        }
-        return stackArray[top--];
+        return top >= 0 ? a[top--] : -1;
     }
-
-    @Override
     public boolean isEmpty() {
         return top == -1;
     }
-
-    @Override
     public int size() {
         return top + 1;
     }
 }
 
-// iii. Dynamic-Length Stack Implementation
-class DynamicLengthStack implements Stack {
-    private int[] stackArray;
-    private int top;
-    private int capacity;
-
-    public DynamicLengthStack() {
-        this.capacity = 10; // Initial capacity
-        this.stackArray = new int[capacity];
-        this.top = -1;
-    }
-
-    @Override
-    public void push(int element) {
-        if (top == capacity - 1) {
-            // If the stack is full, double the capacity
-            capacity *= 2;
-            int[] newStackArray = new int[capacity];
-            System.arraycopy(stackArray, 0, newStackArray, 0, stackArray.length);
-            stackArray = newStackArray;
+class DynamicStack implements Stack {
+    int[] a = new int[2]; int top = -1;
+    public void push(int x) {
+        if (top == a.length - 1) {
+            int[] b = new int[a.length * 2];
+            for (int i = 0; i < a.length; i++) b[i] = a[i];
+            a = b;
         }
-        stackArray[++top] = element;
+        a[++top] = x;
     }
-
-    @Override
     public int pop() {
-        if (isEmpty()) {
-            System.out.println("Stack Underflow: Cannot pop element, stack is empty.");
-            return -1;
-        }
-        return stackArray[top--];
+        return top >= 0 ? a[top--] : -1;
     }
-
-    @Override
     public boolean isEmpty() {
         return top == -1;
     }
-
-    @Override
     public int size() {
         return top + 1;
     }
 }
 
-// iv. Class Demonstrating Runtime Binding and Stack Operations
 public class StackOperations {
     public static void main(String[] args) {
-        // Using FixedLengthStack through Interface reference
-        Stack fixedStack = new FixedLengthStack(5);
-        System.out.println("Fixed Length Stack Operations:");
-        performStackOperations(fixedStack);
-        // Using DynamicLengthStack through Interface reference
-        Stack dynamicStack = new DynamicLengthStack();
-        System.out.println("\nDynamic Length Stack Operations:");
-        performStackOperations(dynamicStack);
-    }
+        Stack s;
 
-    public static void performStackOperations(Stack stack) {
-        System.out.println("Stack Size: " + stack.size());
-        stack.push(10);
-        System.out.println("Stack Size: " + stack.size());
-        stack.push(20);
-        System.out.println("Stack Size: " + stack.size());
-        stack.push(30);
-        System.out.println("Stack Size: " + stack.size());
-        System.out.println("Pop: " + stack.pop());
-        System.out.println("Stack Size: " + stack.size());
-        System.out.println("Pop: " + stack.pop());
-        System.out.println("Stack Size: " + stack.size());
-        System.out.println("Is Empty: " + stack.isEmpty());
-        System.out.println("Stack Size: " + stack.size());
-        System.out.println("Pop: " + stack.pop());
-        System.out.println("Stack Size: " + stack.size());
-        System.out.println("Is Empty: " + stack.isEmpty());
+        s = new FixedStack();
+        s.push(1); s.push(2); s.push(3);
+        System.out.println("Fixed Pop: " + s.pop());
+        System.out.println("Fixed Size: " + s.size());
+        System.out.println("Is Empty: " + s.isEmpty());
+
+        s = new DynamicStack();
+        s.push(10); s.push(20); s.push(30);
+        System.out.println("Dynamic Pop: " + s.pop());
+        System.out.println("Dynamic Size: " + s.size());
+        System.out.println("Is Empty: " + s.isEmpty());
     }
 }

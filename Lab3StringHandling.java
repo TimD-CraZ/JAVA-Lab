@@ -1,5 +1,3 @@
-package Tanmay;
-
 import java.util.Scanner;
 
 public class Lab3StringHandling {
@@ -24,6 +22,8 @@ public class Lab3StringHandling {
         revString = buffer.toString().toUpperCase();
         System.out.println("Original String: " + ori);
         System.out.println("Reversed Uppercase String: " + revString);
+
+        sc.close();
     }
 
     void appendString() {
@@ -36,6 +36,8 @@ public class Lab3StringHandling {
         buffer.append(s);
 
         System.out.println("New appended string: " + buffer.toString());
+
+        sc.close();
     }
     public static void main(String[] args) {
         Lab3StringHandling o = new Lab3StringHandling();

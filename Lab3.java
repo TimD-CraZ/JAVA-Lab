@@ -1,5 +1,3 @@
-package Tanmay;
-
 import java.util.Scanner;
 
 public class Lab3 {
@@ -33,9 +31,8 @@ public class Lab3 {
         System.out.println("Compare strings: " + obj.compareStrings(s1, s2));
         System.out.println("Compare strings(Ignore case): " + obj.compareStringsIgnoreCase(s1, s2));
         System.out.println("Concatenate strings: " + obj.concatenateString(s1, s2));
+        System.out.println("copied string is: " + obj.stringcpy(s1));
 
-        String cpystr = obj.stringcpy(s1);
-
-        System.out.println("copied string is: " + cpystr);
+        sc.close();
     }
 }
